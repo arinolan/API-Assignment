@@ -1,0 +1,34 @@
+---
+title: "Untitled"
+output:
+  pdf_document: default
+  html_document: default
+date: "2022-10-31"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+library(stringr)
+library(ggplot2)
+```
+
+
+```{r}
+apiKey <- "AEnoDRaEYIcGeN1Mz7F66Ti0fROZfQpK"
+
+url <- paste("https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=", apiKey, sep='')
+  
+bookData <- fromJSON(url) %>% 
+  as.data.frame()
+
+bookData
+
+
+```
+
